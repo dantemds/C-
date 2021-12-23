@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InfoJobs.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211223145832_init")]
+    [Migration("20211223154736_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

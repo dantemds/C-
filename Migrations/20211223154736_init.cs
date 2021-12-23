@@ -15,10 +15,10 @@ namespace InfoJobs.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Surname = table.Column<string>(unicode: false, maxLength: 150, nullable: false),
-                    Birthday = table.Column<DateTime>(unicode: false, nullable: false),
-                    Email = table.Column<string>(unicode: true, maxLength: 250, nullable: false),
-                    InsertDate = table.Column<DateTime>(unicode: false, nullable: false),
-                    ModifyDate = table.Column<DateTime>(unicode: false, nullable: true)
+                    Birthday = table.Column<DateTime>(nullable: false),
+                    Email = table.Column<string>(maxLength: 250, nullable: false),
+                    InsertDate = table.Column<DateTime>(nullable: false),
+                    ModifyDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
