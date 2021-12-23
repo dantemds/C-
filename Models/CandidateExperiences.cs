@@ -1,10 +1,14 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InfoJobs.Models
 {
     public class CandidateExperiences
     {
 
+
+        [Key()]
         public int Id { get; set; }
 
         public string Company { get; set; }
@@ -21,14 +25,15 @@ namespace InfoJobs.Models
 
         public DateTime? EndDate { get; set; } = null;
 
-        public DateTime InsertDate { get; set; } = DateTime.Now;
+        public DateTime InsertDate { get; set; } = DateTime.UtcNow;
 
         public DateTime? ModifyDate { get; set; } = null;
 
-       public  Candidates Candidates { get; set; }
+       
 
-        public  int IdCandidates { get; set; }
-
+        [ForeignKey("Candidates")]
+        public  int CandidatesId { get; set; }
+        public virtual Candidates Candidates { get; set; }
         public CandidateExperiences(int id, string company, string job)
         {
             this.Id = id;

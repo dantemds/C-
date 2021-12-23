@@ -34,6 +34,9 @@ namespace InfoJobs
            );
 
 
+            services.AddCors();
+
+
             services.AddScoped<ICandidateExperiencesServices, CandidateExperiencesServices>();
             services.AddScoped<ICandidatesRepo, CandidatesRepo>();
             services.AddScoped<ICandidatesServices, CandidatesServices>();
@@ -50,9 +53,17 @@ namespace InfoJobs
 
             app.UseHttpsRedirection();
 
+           
+
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(option => option.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            
+            );
 
             app.UseEndpoints(endpoints =>
             {

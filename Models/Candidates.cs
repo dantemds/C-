@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace InfoJobs.Models
 {
     public class Candidates
     {
 
+
+
+        [Key()]
         public int Id { get; set; }
             
              
@@ -17,15 +21,19 @@ namespace InfoJobs.Models
 
         public string Surname { get; set; }
 
-        public DateTime Birthday { get; set; }
 
+       
+        public DateTime Birthday { get; set; } 
+
+
+
+        
         public string Email { get; set; }
-
-        public DateTime InsertDate { get; set; } = DateTime.Now;
-
+       
+        public DateTime InsertDate { get; set; } = DateTime.UtcNow;
         public DateTime? ModifyDate { get; set; } = null;
 
-        public  ICollection<CandidateExperiences> Experiences { get; set; }
+        public  virtual ICollection<CandidateExperiences> Experiences { get; set; }
        
 
         

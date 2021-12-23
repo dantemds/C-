@@ -70,7 +70,7 @@ namespace InfoJobs.Data.Repository
 
             query = query.AsNoTracking()
                 .OrderBy(experience => experience.Id)
-                .Where(experience => experience.IdCandidates == idCandidate);
+                .Where(experience => experience.CandidatesId == idCandidate);
 
             return await query.ToArrayAsync();
 

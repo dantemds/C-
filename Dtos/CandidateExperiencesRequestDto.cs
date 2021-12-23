@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InfoJobs.Models;
+using System;
 
 namespace InfoJobs.Dtos
 {
@@ -19,10 +20,13 @@ namespace InfoJobs.Dtos
 
         public DateTime? EndDate { get; set; }
 
-        public DateTime InsertDate { get; set; }
+        public DateTime InsertDate { get; set; } = DateTime.UtcNow;
 
         public DateTime? ModifyDate { get; set; }
 
-        public int IdCandidates { get; set; }
+        public int CandidatesId { get; set; }
+
+       
+
     }
 }

@@ -25,9 +25,9 @@ namespace InfoJobs.Dtos
         public DateTime InsertDate { get; set; } 
 
         public DateTime? ModifyDate { get; set; } 
-        public Candidates Candidates { get; set; }
+      
 
-        public int IdCandidates { get; set; }
+        public int CandidatesId { get; set; }
 
     }
 }

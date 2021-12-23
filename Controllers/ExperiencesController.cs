@@ -1,13 +1,14 @@
 ﻿using InfoJobs.Data.Repository;
 using InfoJobs.Dtos;
 using InfoJobs.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 
 namespace InfoJobs.Controllers
 {
-
+    [EnableCors]
 
     [ApiController]
     [Route("/api/v1/[controller]")]

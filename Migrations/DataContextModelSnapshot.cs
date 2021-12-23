@@ -25,7 +25,7 @@ namespace InfoJobs.Migrations
                     b.Property<DateTime>("BeginDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CandidatesId")
+                    b.Property<int>("CandidatesId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Company")
@@ -42,9 +42,6 @@ namespace InfoJobs.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("IdCandidates")
-                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("TEXT");
@@ -110,7 +107,9 @@ namespace InfoJobs.Migrations
                 {
                     b.HasOne("InfoJobs.Models.Candidates", "Candidates")
                         .WithMany("Experiences")
-                        .HasForeignKey("CandidatesId");
+                        .HasForeignKey("CandidatesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

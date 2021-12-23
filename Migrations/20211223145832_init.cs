@@ -15,10 +15,10 @@ namespace InfoJobs.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(unicode: false, maxLength: 50, nullable: false),
                     Surname = table.Column<string>(unicode: false, maxLength: 150, nullable: false),
-                    Birthday = table.Column<DateTime>(nullable: false),
-                    Email = table.Column<string>(maxLength: 250, nullable: false),
-                    InsertDate = table.Column<DateTime>(nullable: false),
-                    ModifyDate = table.Column<DateTime>(nullable: true)
+                    Birthday = table.Column<DateTime>(unicode: false, nullable: false),
+                    Email = table.Column<string>(unicode: true, maxLength: 250, nullable: false),
+                    InsertDate = table.Column<DateTime>(unicode: false, nullable: false),
+                    ModifyDate = table.Column<DateTime>(unicode: false, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,8 +39,7 @@ namespace InfoJobs.Migrations
                     EndDate = table.Column<DateTime>(nullable: true),
                     InsertDate = table.Column<DateTime>(nullable: false),
                     ModifyDate = table.Column<DateTime>(nullable: true),
-                    CandidatesId = table.Column<int>(nullable: true),
-                    IdCandidates = table.Column<int>(nullable: false)
+                    CandidatesId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +49,7 @@ namespace InfoJobs.Migrations
                         column: x => x.CandidatesId,
                         principalTable: "Candidates",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
